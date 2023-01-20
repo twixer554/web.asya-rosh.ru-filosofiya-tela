@@ -1,0 +1,48 @@
+.page {
+  @include desktop(
+    (
+      'max-width': 320px,
+      'min-height': 100vh,
+
+      'margin': 0 auto,
+
+      'background': get-theme-color('bg'),
+      'overflow': hidden,
+    )
+  );
+}
+
+.wrapper {
+  @include desktop(
+    (
+      'max-width': 260px,
+      'margin': 0 auto,
+    )
+  );
+}
+
+.section {
+  @include desktop(
+    (
+      'padding': 50px 0,
+    )
+  );
+
+  &_texture {
+    @include desktop(
+      (
+        'color': get-theme-color('bg'),
+      )
+    );
+
+    & + & {
+      padding-top: 0;
+    }
+  }
+
+  &_green {
+    & + & {
+      padding-top: 0;
+    }
+  }
+}

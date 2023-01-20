@@ -1,0 +1,22 @@
+// helpers
+@import 'generated/smartgrid';
+@import 'helpers/functions.scss';
+@import 'helpers/variables.scss';
+@import 'helpers/mixins.scss';
+
+@include reset();
+
+// @import '../../node_modules/normalize.css/normalize.css';
+// @import 'normalize/normalize.css';
+
+// styles
+@import 'base/**/*.scss';
+
+// import from node_modules
+@import 'slick-carousel/slick/slick.scss';
+@import 'magnific-popup/src/css/main.scss';
+
+@import 'components/**/*.scss';
+@import 'parts/**/*.scss';
+@import 'sections/**/*.scss';
+@import 'pages/**/*.scss';

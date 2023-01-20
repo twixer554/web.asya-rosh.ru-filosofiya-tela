@@ -1,0 +1,189 @@
+@mixin bgi2x($path, $filename, $ext) {
+  background-image: -webkit-image-set(
+    url($path + $filename + '.' + $ext) 1x,
+    url($path + $filename + '@2x.' + $ext) 2x
+  );
+  background-image: image-set(
+    url($path + $filename + '.' + $ext) 1x,
+    url($path + $filename + '@2x.' + $ext) 2x
+  );
+}
+
+@mixin title($fz: 16px) {
+  font-family: get-theme-font('title');
+  font-size: $fz;
+  text-transform: uppercase;
+}
+
+@mixin cursive($fz: 18px) {
+  font-family: get-theme-font('cursive');
+  font-size: $fz;
+  line-height: 1;
+}
+
+@mixin absolute($tagname, $width, $height, $top: 0, $left: 0) {
+  @include desktop(
+    (
+      'position': relative,
+      'z-index': 1,
+    )
+  );
+
+  #{$tagname} {
+    @include desktop(
+      (
+        'position': absolute,
+        'z-index': -1,
+
+        'top': $top,
+        'left': $left,
+
+        'width': $width,
+        'height': $height,
+      )
+    );
+  }
+}
+
+@mixin stroke($width, $height, $top: 0, $left: 0) {
+  @include absolute('svg', $width, $height, $top, $left);
+
+  svg {
+    @include desktop(
+      (
+        'fill': get-theme-color('avocado'),
+      )
+    );
+  }
+}
+
+@mixin line($top, $left) {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+
+    background: get-theme-gradient('primary');
+    border-radius: 1px;
+
+    transform: skewX(-11deg);
+
+    @include desktop(
+      (
+        'top': $top,
+        'left': $left,
+
+        'width': 50px,
+        'height': 8px,
+      )
+    );
+  }
+}
+
+@mixin section-before($height, $color: #fff) {
+  &:before {
+    position: absolute;
+    z-index: -1;
+
+    content: '';
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: $color;
+
+    @include desktop(
+      (
+        'height': $height,
+      )
+    );
+  }
+}
+@mixin at-root($tagname) {
+  @at-root {
+    #{$tagname}#{&} {
+      @content;
+    }
+  }
+}
+
+@mixin media-ie {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($key) {
+  $max: map-get($grid-breakpoints, $key);
+
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-up($key) {
+  $min: map-get($grid-breakpoints, $key);
+
+  @media (min-width: ($min + 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop($properties) {
+  $maxWidth: map-get($grid-breakpoints, 'lg');
+
+  @each $property, $value in $properties {
+    #{$property}: $value;
+  }
+
+  // @media (max-width: $maxWidth) {
+  //   @each $property, $value in $properties {
+  //     @if (type-of($value) == 'list') {
+  //       $list: ();
+
+  //       @each $key in $value {
+  //         @if (type-of($key) == 'number' and unit($key) == 'px') {
+  //           $vw-value: $key / $maxWidth * 100 + vw;
+  //           $list: append($list, $vw-value);
+  //         } @else {
+  //           $list: append($list, $key);
+  //         }
+  //       }
+
+  //       #{$property}: $list;
+  //     } @else if (type-of($value) == 'number' and unit($value) == 'px') {
+  //       #{$property}: $value / $maxWidth * 100 + vw;
+  //     }
+  //   }
+  // }
+}
+
+@mixin mobile($properties) {
+  $maxWidth: map-get($grid-breakpoints, 'xs');
+
+  @media (max-width: $maxWidth) {
+    @each $property, $value in $properties {
+      #{$property}: $value;
+    }
+    //   @each $property, $value in $properties {
+    //     @if (type-of($value) == 'list') {
+    //       $list: ();
+
+    //       @each $key in $value {
+    //         @if (type-of($key) == 'number' and unit($key) == 'px') {
+    //           $vw-value: $key / $maxWidth * 100 + vw;
+    //           $list: append($list, $vw-value);
+    //         } @else {
+    //           $list: append($list, $key);
+    //         }
+    //       }
+
+    //       #{$property}: $list;
+    //     } @else if (type-of($value) == 'number' and unit($value) == 'px') {
+    //       #{$property}: $value / $maxWidth * 100 + vw;
+    //     }
+    //   }
+  }
+}

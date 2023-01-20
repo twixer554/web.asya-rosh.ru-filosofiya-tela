@@ -1,0 +1,9 @@
+assets
+
+node_modules
+.vscode
+*.rar
+*.zip
+
+robots.txt
+.htaccess
