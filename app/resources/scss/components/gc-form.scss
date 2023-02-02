@@ -1,0 +1,23 @@
+.gc-form {
+  br {
+    display: none;
+  }
+
+  input {
+    @extend .input;
+  }
+
+  button {
+    @extend .button;
+    @extend .button__inner;
+    @extend .button_medium;
+    @extend .button_secondary;
+
+    @include mobile(
+      (
+        'width': 100%,
+        'height': 44px,
+      )
+    );
+  }
+}

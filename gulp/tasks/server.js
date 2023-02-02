@@ -19,7 +19,7 @@ const server = (callback) => {
     // open: false,
     // notify: false,
     // tunnel: true,
-    proxy: 'localhost/web.asya-rosh/filosofiya-telaapp/',
+    proxy: 'localhost/web.asya-rosh/filosofiya-tela/app/',
   })
 
   callback()

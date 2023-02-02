@@ -1,0 +1,121 @@
+.footer {
+  a {
+    @include mobile(
+      (
+        'color': inherit,
+      )
+    );
+  }
+
+  &__logo {
+    @include mobile(
+      (
+        'text-align': center,
+      )
+    );
+
+    svg {
+      @include mobile(
+        (
+          'width': 125px,
+          'height': 80px,
+
+          'fill': get-theme-color('white'),
+        )
+      );
+    }
+  }
+
+  &__content {
+    @include mobile(
+      (
+        'margin-top': 40px,
+      )
+    );
+  }
+
+  &__nav {
+    @include mobile(
+      (
+        'display': flex,
+        'justify-content': space-between,
+      )
+    );
+  }
+
+  &__nav-link {
+    @include mobile(
+      (
+        'font-size': 8px,
+      )
+    );
+  }
+
+  &__links {
+    @include mobile(
+      (
+        'display': flex,
+        'justify-content': space-between,
+
+        'margin-top': 20px,
+        'padding-top': 20px,
+
+        'border-top': 1px solid rgba(255, 255, 255, 0.1),
+      )
+    );
+  }
+
+  &__link {
+    @include mobile(
+      (
+        'font-size': 8px,
+      )
+    );
+  }
+
+  &__social {
+    @include mobile(
+      (
+        'margin-top': 40px,
+      )
+    );
+  }
+
+  &__social-row {
+    @include mobile(
+      (
+        'display': flex,
+        'justify-content': center,
+
+        'margin': 0 -4px,
+      )
+    );
+  }
+
+  &__social-item {
+    @include mobile(
+      (
+        'margin': 0 4px,
+
+        'width': 40px,
+        'height': 40px,
+
+        'background': get-theme-color('secondary'),
+        'border-radius': 50%,
+
+        'text-align': center,
+      )
+    );
+
+    svg {
+      @include mobile(
+        (
+          'width': 12px,
+          'height': 100%,
+
+          'fill': get-theme-color('white'),
+        )
+      );
+    }
+  }
+}

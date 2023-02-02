@@ -1,0 +1,143 @@
+.wheel {
+  $mob-fix: 20px;
+
+  &__image {
+    @include mobile(
+      (
+        'width': 100%,
+      )
+    );
+  }
+
+  &__features {
+    @include mobile(
+      (
+        'margin-top': 70px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': 120px,
+      )
+    );
+  }
+
+  &__features-title {
+    @extend .section__title;
+
+    @include mobile(
+      (
+        'text-align': center,
+      )
+    );
+  }
+
+  &__features-row {
+    @include mobile(
+      (
+        'display': flex,
+        'align-items': flex-start,
+        'flex-wrap': wrap,
+
+        'margin-top': 20px,
+        'margin-right': -$mob-fix,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': 40px,
+        'margin-right': 0,
+      )
+    );
+  }
+
+  &__features-item {
+    &:nth-child(1) {
+      @include mobile(
+        (
+          'width': 125px,
+        )
+      );
+
+      @include desktop(
+        (
+          'width': 295px,
+          'margin': 0 30px,
+        )
+      );
+    }
+
+    &:nth-child(2) {
+      @include mobile(
+        (
+          'width': 127px,
+          'margin-left': 16px,
+        )
+      );
+
+      @include desktop(
+        (
+          'width': 330px,
+          'margin': 0 30px,
+        )
+      );
+    }
+
+    @include mobile(
+      (
+        'display': flex,
+        'align-items': center,
+      )
+    );
+
+    img {
+      @include flex-img(32px);
+
+      @include desktop(
+        (
+          'width': 84px,
+        )
+      );
+    }
+
+    p {
+      @include mobile(
+        (
+          'margin-left': 8px,
+
+          'font-size': 8px,
+        )
+      );
+      @include desktop(
+        (
+          'margin-left': 20px,
+
+          'font-size': 18px,
+        )
+      );
+    }
+  }
+
+  &__features-button-wrap {
+    @include mobile(
+      (
+        'width': 100%,
+
+        'margin-top': 20px,
+        'padding-right': $mob-fix,
+
+        'text-align': center,
+      )
+    );
+
+    @include desktop(
+      (
+        'width': initial,
+        'margin': 0 30px,
+        'padding-right': 0,
+      )
+    );
+  }
+}

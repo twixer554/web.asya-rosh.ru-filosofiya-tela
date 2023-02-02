@@ -1,0 +1,98 @@
+$sizes: (
+  'small': (
+    'mobile': (
+      'font-size': 9px,
+      'padding': 10px 15px,
+      'min-height': 34px,
+    ),
+  ),
+  'big': (
+    'mobile': (
+      'font-size': 11px,
+      'padding': 15px 30px,
+      'min-height': 56px,
+    ),
+    'desktop': (
+      'font-size': 18px,
+      'padding': 20px 40px,
+      'min-height': 86px,
+    ),
+  ),
+);
+
+@mixin add-button-size($mobile-size, $desktop-size) {
+  .button_#{$mobile-size}-#{$desktop-size} {
+    $mobile-arr: map-get($sizes, $mobile-size);
+    $mobile-properties: map-get($mobile-arr, 'mobile');
+
+    $desktop-arr: map-get($sizes, $desktop-size);
+    $desktop-properties: map-get($desktop-arr, 'desktop');
+
+    @each $property, $value in $mobile-properties {
+      @include mobile(
+        (
+          $property: $value,
+        )
+      );
+    }
+
+    @each $property, $value in $desktop-properties {
+      @include desktop(
+        (
+          $property: $value,
+        )
+      );
+    }
+  }
+}
+
+@include add-button-size('small', 'big');
+@include add-button-size('big', 'big');
+
+.button {
+  .__flower {
+    @include mobile(
+      (
+        'height': 11px,
+        'width': 11px,
+
+        'margin-right': 4px,
+      )
+    );
+
+    @include desktop(
+      (
+        'width': 30px,
+        'height': 30px,
+
+        'margin-right': 15px,
+      )
+    );
+  }
+  &_small {
+    .button__inner {
+    }
+  }
+
+  &_medium {
+    @include mobile(
+      (
+        'font-size': 10px,
+      )
+    );
+
+    .button__inner {
+      @include mobile(
+        (
+          'padding': 10px 20px,
+          'min-height': 44px,
+        )
+      );
+    }
+  }
+
+  &_big {
+    .button__inner {
+    }
+  }
+}

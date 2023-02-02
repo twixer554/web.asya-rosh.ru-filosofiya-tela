@@ -1,0 +1,44 @@
+.formula {
+  @include mobile(
+    (
+      'text-align': center,
+    )
+  );
+
+  .__title {
+    @include title();
+  }
+
+  .__operand {
+    @include mobile(
+      (
+        'margin': 15px 0,
+
+        'width': 20px,
+        'height': 20px,
+
+        'fill': get-theme-color('avocado'),
+      )
+    );
+  }
+
+  .__result {
+    @include mobile(
+      (
+        'margin-top': 2px,
+
+        'font-size': 10px,
+      )
+    );
+  }
+
+  img {
+    @include mobile(
+      (
+        'margin': 40px auto 0,
+
+        'width': 200px,
+      )
+    );
+  }
+}

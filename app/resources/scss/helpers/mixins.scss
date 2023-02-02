@@ -9,37 +9,132 @@
   );
 }
 
+@mixin fix-swiper-shadow($mobile, $desktop: 0) {
+  .swiper {
+    @include mobile(
+      (
+        'margin': -$mobile,
+        'padding': $mobile,
+      )
+    );
+  }
+}
+
+@mixin circle($position: 'left') {
+  @include mobile(
+    (
+      'width': 200px,
+    )
+  );
+
+  @include desktop(
+    (
+      'width': 600px,
+    )
+  );
+
+  @if $position == 'left' {
+    left: 50%;
+
+    @include mobile(
+      (
+        'margin-left': -10px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-left': 410px,
+      )
+    );
+  }
+
+  @if $position == 'right' {
+    right: 50%;
+
+    @include mobile(
+      (
+        'margin-right': -10px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-right': 410px,
+      )
+    );
+  }
+}
+
+@mixin reset-margin {
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin fl-reset {
+  *:first-child {
+    margin-top: 0;
+  }
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
 @mixin title($fz: 16px) {
   font-family: get-theme-font('title');
-  font-size: $fz;
   text-transform: uppercase;
+
+  @include mobile(
+    (
+      'font-size': $fz,
+    )
+  );
 }
 
 @mixin cursive($fz: 18px) {
   font-family: get-theme-font('cursive');
-  font-size: $fz;
-  line-height: 1;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+
+  @include mobile(
+    (
+      'font-size': $fz,
+    )
+  );
 }
 
-@mixin absolute($tagname, $width, $height, $top: 0, $left: 0) {
-  @include desktop(
+@mixin flex-img($width) {
+  @include mobile(
+    (
+      'flex-shrink': 0,
+      'align-self': flex-start,
+
+      'width': $width,
+    )
+  );
+}
+
+@mixin absolute($selector, $top: 0, $left: 0) {
+  @include mobile(
     (
       'position': relative,
       'z-index': 1,
     )
   );
 
-  #{$tagname} {
-    @include desktop(
+  #{$selector} {
+    @include mobile(
       (
         'position': absolute,
         'z-index': -1,
 
         'top': $top,
         'left': $left,
-
-        'width': $width,
-        'height': $height,
       )
     );
   }
@@ -49,7 +144,7 @@
   @include absolute('svg', $width, $height, $top, $left);
 
   svg {
-    @include desktop(
+    @include mobile(
       (
         'fill': get-theme-color('avocado'),
       )
@@ -69,7 +164,7 @@
 
     transform: skewX(-11deg);
 
-    @include desktop(
+    @include mobile(
       (
         'top': $top,
         'left': $left,
@@ -94,7 +189,7 @@
 
     background: $color;
 
-    @include desktop(
+    @include mobile(
       (
         'height': $height,
       )
@@ -132,20 +227,23 @@
 }
 
 @mixin desktop($properties) {
-  $maxWidth: map-get($grid-breakpoints, 'lg');
+  $lg: map-get($grid-breakpoints, 'lg');
+  $xl: map-get($grid-breakpoints, 'xl');
 
-  @each $property, $value in $properties {
-    #{$property}: $value;
+  @media (min-width: $xl) {
+    @each $property, $value in $properties {
+      #{$property}: $value;
+    }
   }
 
-  // @media (max-width: $maxWidth) {
+  // @media (min-width: $min-witdh) {
   //   @each $property, $value in $properties {
   //     @if (type-of($value) == 'list') {
   //       $list: ();
 
   //       @each $key in $value {
   //         @if (type-of($key) == 'number' and unit($key) == 'px') {
-  //           $vw-value: $key / $maxWidth * 100 + vw;
+  //           $vw-value: $key * $min-witdh / 320px;
   //           $list: append($list, $vw-value);
   //         } @else {
   //           $list: append($list, $key);
@@ -154,36 +252,33 @@
 
   //       #{$property}: $list;
   //     } @else if (type-of($value) == 'number' and unit($value) == 'px') {
-  //       #{$property}: $value / $maxWidth * 100 + vw;
+  //       #{$property}: $value * $min-witdh / 320px;
+  //     } @else {
+  //       #{$property}: $value;
   //     }
   //   }
   // }
 }
 
 @mixin mobile($properties) {
-  $maxWidth: map-get($grid-breakpoints, 'xs');
+  @each $property, $value in $properties {
+    @if (type-of($value) == 'list') {
+      $list: ();
 
-  @media (max-width: $maxWidth) {
-    @each $property, $value in $properties {
+      @each $key in $value {
+        @if (type-of($key) == 'number' and unit($key) == 'px') {
+          $vw-value: $key / 320px * 100 + vw;
+          $list: append($list, $vw-value);
+        } @else {
+          $list: append($list, $key);
+        }
+      }
+
+      #{$property}: $list;
+    } @else if (type-of($value) == 'number' and unit($value) == 'px') {
+      #{$property}: $value / 320px * 100 + vw;
+    } @else {
       #{$property}: $value;
     }
-    //   @each $property, $value in $properties {
-    //     @if (type-of($value) == 'list') {
-    //       $list: ();
-
-    //       @each $key in $value {
-    //         @if (type-of($key) == 'number' and unit($key) == 'px') {
-    //           $vw-value: $key / $maxWidth * 100 + vw;
-    //           $list: append($list, $vw-value);
-    //         } @else {
-    //           $list: append($list, $key);
-    //         }
-    //       }
-
-    //       #{$property}: $list;
-    //     } @else if (type-of($value) == 'number' and unit($value) == 'px') {
-    //       #{$property}: $value / $maxWidth * 100 + vw;
-    //     }
-    //   }
   }
 }

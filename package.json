@@ -59,15 +59,11 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "hystmodal": "^0.5.1",
     "inputmask": "^5.0.7",
-    "jquery": "^3.6.0",
-    "js-cookie": "^3.0.1",
-    "magnific-popup": "^1.1.0",
-    "normalize.css": "^8.0.1",
-    "slick-carousel": "^1.8.1",
     "smart-grid": "^2.1.2",
     "svg4everybody": "^2.1.9",
-    "vanilla-lazyload": "^17.8.3",
-    "ymaps": "^0.2.1"
+    "swiper": "^9.0.0",
+    "vanilla-lazyload": "^17.8.3"
   }
 }

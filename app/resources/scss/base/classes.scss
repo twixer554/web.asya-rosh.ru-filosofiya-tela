@@ -1,3 +1,9 @@
-.uppercase {
-  text-transform: uppercase;
+.tac {
+  text-align: center;
+}
+
+@include media-breakpoint-up('lg') {
+  .desktop-tac {
+    text-align: center;
+  }
 }

@@ -1,0 +1,26 @@
+.privacy {
+  @include absolute('svg', 0, 0);
+
+  @include mobile(
+    (
+      'padding-left': 13px,
+
+      'font-size': 8px,
+    )
+  );
+
+  svg {
+    @include mobile(
+      (
+        'width': 8px,
+        'height': 10px,
+
+        'fill': get-theme-color('secondary'),
+      )
+    );
+  }
+
+  a {
+    color: inherit;
+  }
+}

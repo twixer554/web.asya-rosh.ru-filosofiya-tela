@@ -1,4 +1,4 @@
-<? $title = 'Главная'; ?>
+<? $title = 'Авторский интенсив «Философиия тела»'; ?>
 <? $body_class = 'body-home'?>
 <? include 'header.php'; ?>
 
@@ -19,11 +19,11 @@
         </picture>
       </div>
       <div class="hero__description">Обучение, которое изменит ваше представление о&nbsp;правильном питании и&nbsp;стройности навсегда</div>
-      <a href="#rates" class="hero__button">
+      <a href="#rates" class="hero__button js-anchor">
         <svg class="__flower"><use xlink:href="assets/sprites/sprite-mono.svg#flower"></use></svg>
         <span>хочу на интенсив</span>
       </a>
-      <div class="hero__start">(Старт ХХ февраля)</div>
+      <div class="hero__start">(Старт 12 февраля)</div>
     </div>
   </div>
   <picture>
@@ -68,7 +68,7 @@
       </div>
       <div class="features__item">
         <div class="features__item-text">
-          Прийти к <span class="highlight">настоящему правильному питанию</span>, которое будет работать всю&nbsp;жизнь
+          Прийти к <span class="highlight">настоящему</span> <br><span class="highlight">правильному питанию</span>, которое будет работать всю&nbsp;жизнь
           <span class="__uppercase">(даже на праздниках <br>и&nbsp;в&nbsp;отпуске)</span>
         </div>
         <picture>
@@ -113,13 +113,13 @@
         </picture>
       </div>
     </div>
-    <a href="#rates" class="features__button">записаться на обучение</a>
+    <a href="#rates" class="features__button js-anchor">записаться на обучение</a>
   </div>
 </div>
 
 
 
-<div class="rates section section_green">
+<div class="rates section section_green" id="rates">
   <div class="wrapper">
     <div class="rates__cursive">Are you with us?</div>
     <div class="rates__title rates__title_1">
@@ -161,18 +161,18 @@
 
         <div class="rates__item">
           <svg class="__clock"><use xlink:href="assets/sprites/sprite-mono.svg#clock"></use></svg>
-          <span><i>Обучение 3 недели</i></span>
+          <span><i>Доступ 1 месяц</i></span>
         </div>
 
         <div class="rates__card-prices">
-          <div class="__old">7 900</div>
-          <div class="__current">5 900</div>
+          <div class="__old">9 900</div>
+          <div class="__current">7 900</div>
         </div>
 
         <div class="rates__card-buttons">
-          <a href="#" class="rates__card-button">Оплата РФ</a>
-          <a href="#" class="rates__card-button">Оплата не РФ</a>
-          <a href="#" class="rates__card-button">Рассрочка</a>
+          <a href="#rate_modal_light" class="rates__card-button js-get-modal">Оплата РФ</a>
+          <a href="https://lava.top/product/77188/" class="rates__card-button" target="_blank">Оплата не РФ</a>
+          <a href="#rate_modal_light_parts" class="rates__card-button js-get-modal">Рассрочка</a>
         </div>
 
       </div>
@@ -286,7 +286,7 @@
 
         <div class="rates__item">
           <svg class="__clock"><use xlink:href="assets/sprites/sprite-mono.svg#clock"></use></svg>
-          <span><i>Обучение 1,5 месяца</i></span>
+          <span><i>Доступ 3 месяца</i></span>
         </div>
 
         <div class="rates__card-prices">
@@ -295,9 +295,9 @@
         </div>
 
         <div class="rates__card-buttons">
-          <a href="#" class="rates__card-button">Оплата РФ</a>
-          <a href="#" class="rates__card-button">Оплата не РФ</a>
-          <a href="#" class="rates__card-button">Рассрочка</a>
+          <a href="#rate_modal_pro" class="rates__card-button js-get-modal">Оплата РФ</a>
+          <a href="https://lava.top/product/77189/" class="rates__card-button" target="_blank">Оплата не РФ</a>
+          <a href="#rate_modal_pro_parts" class="rates__card-button js-get-modal">Рассрочка</a>
         </div>
 
       </div>
@@ -423,7 +423,7 @@
 
         <div class="rates__item">
           <svg class="__clock"><use xlink:href="assets/sprites/sprite-mono.svg#clock"></use></svg>
-          <span><i>Обучение 1,5 месяца</i></span>
+          <span><i>Доступ 3 месяца</i></span>
         </div>
 
         <div class="rates__card-prices">
@@ -432,9 +432,9 @@
         </div>
 
         <div class="rates__card-buttons">
-          <a href="#" class="rates__card-button">Оплата РФ</a>
-          <a href="#" class="rates__card-button">Оплата не РФ</a>
-          <a href="#" class="rates__card-button">Рассрочка</a>
+          <a href="#rate_modal_vip" class="rates__card-button js-get-modal">Оплата РФ</a>
+          <a href="https://lava.top/product/77190/" class="rates__card-button" target="_blank">Оплата не РФ</a>
+          <a href="#rate_modal_vip_parts" class="rates__card-button js-get-modal">Рассрочка</a>
         </div>
 
       </div>
@@ -449,7 +449,7 @@
         <div class="rates__item rates__item_diamond">
           <svg class="__heart"><use xlink:href="assets/sprites/sprite-mono.svg#heart"></use></svg>
           <span class="uppercase"><i>Сопровождение Асей Рош </i></span>
-          <div>1,5 месяца</div>
+          <div>Доступ 3 месяца</div>
         </div>
 
         <div class="rates__item">
@@ -458,14 +458,14 @@
         </div>
 
         <div class="rates__card-prices">
-          <div class="__old">25 900</div>
-          <div class="__current">19 900</div>
+          <div class="__old">129 900</div>
+          <div class="__current">99 900</div>
         </div>
 
         <div class="rates__card-buttons">
-          <a href="#" class="rates__card-button">Оплата РФ</a>
-          <a href="#" class="rates__card-button">Оплата не РФ</a>
-          <a href="#" class="rates__card-button">Рассрочка</a>
+          <a href="#rate_modal_diamond" class="rates__card-button js-get-modal">Оплата РФ</a>
+          <a href="https://lava.top/product/77193/" class="rates__card-button" target="_blank">Оплата не РФ</a>
+          <a href="#rate_modal_diamond_parts" class="rates__card-button js-get-modal">Рассрочка</a>
         </div>
 
       </div>
@@ -484,9 +484,9 @@
     <div class="final__cursive final__cursive_1">Join the club</div>
     <div class="final__title">У вас есть 3 варианта</div>
     <div class="final__buttons">
-      <a href="#" class="final__button">забрать место на интенсиве <br>по самой низкой цене</a>
-      <a href="#" class="final__button">Проконсультироваться, <br>подходит ли мне интенсив</a>
-      <a href="#" class="final__button">записаться на вебинар</a>
+      <a href="#rates" class="final__button js-anchor">забрать место на интенсиве <br>по самой низкой цене</a>
+      <a href="#consult_modal" class="final__button js-get-modal">Проконсультироваться, <br>подходит ли мне интенсив</a>
+      <a href="./vebinar" class="final__button js-with-utm" target="_blank">записаться на вебинар</a>
     </div>
     <div class="final__cursive final__cursive_2">See you soon</div>
       <svg class="final__logo"><use xlink:href="assets/sprites/sprite-mono.svg#logo"></use></svg>

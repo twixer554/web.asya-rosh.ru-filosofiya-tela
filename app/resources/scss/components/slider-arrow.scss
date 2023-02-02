@@ -1,0 +1,44 @@
+.slider-arrow {
+  @include mobile(
+    (
+      'position': relative,
+      'z-index': 5,
+
+      'width': 32px,
+      'height': 32px,
+
+      'background': get-theme-color('avocado'),
+      'border-radius': 50%,
+
+      'text-align': center,
+    )
+  );
+
+  @include desktop(
+    (
+      'width': 60px,
+      'height': 60px,
+    )
+  );
+
+  &._prev {
+    transform: scaleX(-1);
+  }
+
+  svg {
+    @include mobile(
+      (
+        'width': 7px,
+        'height': 100%,
+
+        'fill': get-theme-color('primary'),
+      )
+    );
+
+    @include desktop(
+      (
+        'width': 12px,
+      )
+    );
+  }
+}

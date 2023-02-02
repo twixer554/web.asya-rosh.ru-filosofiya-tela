@@ -1,0 +1,527 @@
+.rates {
+  @include absolute('.rates__circle', 200px, 200px, 45px, 158px);
+
+  &__cursive {
+    @include cursive();
+  }
+
+  &__title {
+    @include title();
+
+    span {
+      @include mobile(
+        (
+          'font-weight': 300,
+        )
+      );
+    }
+
+    &_1 {
+      @include mobile(
+        (
+          'margin-top': 124px,
+        )
+      );
+
+      @include absolute('svg', 13px, 11px, 109px, 68px);
+
+      svg {
+        fill: get-theme-color('avocado');
+      }
+    }
+
+    &_2 {
+      @include mobile(
+        (
+          'margin-top': 60px,
+        )
+      );
+    }
+  }
+
+  &__card {
+    @include mobile(
+      (
+        'position': relative,
+
+        'padding': 30px 32px 20px,
+        'margin': 20px -20px,
+
+        'border-width': 1px,
+        'border-style': solid,
+        'border-radius': 20px,
+      )
+    );
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'content': '',
+
+          'top': -7px,
+          'right': 20px,
+
+          'width': 27px,
+          'height': 36px,
+
+          'background-position': top right,
+          'background-size': contain,
+          'background-repeat': no-repeat,
+        )
+      );
+    }
+
+    &_secondary {
+      @include mobile(
+        (
+          'border-color': get-theme-color('secondary'),
+        )
+      );
+
+      &:before {
+        background-image: url(../img/rate-label-1.svg);
+      }
+    }
+
+    &_primary {
+      @include mobile(
+        (
+          'border-color': get-theme-color('primary'),
+        )
+      );
+
+      .rates__card-button {
+        background: get-theme-color('primary');
+      }
+
+      &:before {
+        background-image: url(../img/rate-label-2.svg);
+      }
+    }
+
+    &_gold {
+      @include mobile(
+        (
+          'border-color': get-theme-color('gold'),
+        )
+      );
+
+      .rates__card-button {
+        background: get-theme-color('gold');
+        position: relative;
+        z-index: 1;
+
+        &:before {
+          @include mobile(
+            (
+              'position': absolute,
+              'z-index': -1,
+              'content': '',
+
+              'top': 0,
+              'left': 0,
+              'right': 0,
+              'bottom': 0,
+
+              'background': url(../img/gold-texture.jpg) center no-repeat,
+              'background-size': cover,
+              'border-radius': inherit,
+              'opacity': 0.5,
+            )
+          );
+        }
+      }
+
+      .rates__card-label {
+        svg {
+          fill: get-theme-color('gold');
+        }
+
+        span {
+          color: get-theme-color('default');
+        }
+      }
+
+      &:before {
+        background-image: url(../img/rate-label-3.png);
+      }
+    }
+
+    &_diamond {
+      @include mobile(
+        (
+          'border-color': get-theme-color('diamond'),
+          'margin-top': 32px,
+        )
+      );
+
+      .rates__card-button {
+        background: get-theme-color('diamond');
+        color: get-theme-color('default');
+        position: relative;
+        z-index: 1;
+
+        &:before {
+          @include mobile(
+            (
+              'position': absolute,
+              'z-index': -1,
+              'content': '',
+
+              'top': 0,
+              'left': 0,
+              'right': 0,
+              'bottom': 0,
+
+              'background': url(../img/diamond-texture.jpg) center no-repeat,
+              'background-size': cover,
+              'border-radius': inherit,
+            )
+          );
+        }
+      }
+
+      .rates__card-label {
+        svg {
+          fill: get-theme-color('diamond');
+        }
+
+        span {
+          color: get-theme-color('default');
+        }
+      }
+
+      &:before {
+        @include mobile(
+          (
+            'width': 50px,
+            'height': 62px,
+
+            'top': -22px,
+            'right': 1px,
+
+            'background-image': url(../img/diamond.png),
+          )
+        );
+      }
+    }
+  }
+
+  &__card-label {
+    @include absolute('svg', 187px, 19px, -2px, -45px);
+
+    @include mobile(
+      (
+        'margin': 12px 0 24px,
+      )
+    );
+
+    svg {
+      @include mobile(
+        (
+          'z-index': -1,
+        )
+      );
+    }
+
+    span {
+      @include title(12px);
+    }
+  }
+
+  &__card-title {
+    @include title(24px);
+  }
+
+  &__card-block {
+    @include absolute('.__flower', 16px, 16px, 0, 0);
+
+    @include mobile(
+      (
+        'margin-top': 35px,
+        'padding-left': 30px,
+      )
+    );
+
+    &:before {
+      content: 'Блок';
+    }
+
+    svg {
+      fill: get-theme-color('avocado');
+    }
+  }
+
+  &__card-block-name {
+    text-transform: uppercase;
+  }
+
+  &__card-block-toggler {
+    @include absolute('svg', 11px, 7px, 4px, 0);
+
+    @include mobile(
+      (
+        'padding-left': 18px,
+        'margin-top': 2px,
+
+        'color': get-theme-color('secondary'),
+      )
+    );
+
+    svg {
+      fill: get-theme-color('secondary');
+    }
+
+    span {
+      @include mobile(
+        (
+          'border-bottom': 1px solid get-theme-color('secondary'),
+        )
+      );
+    }
+  }
+
+  &__card-block-title {
+    @include mobile(
+      (
+        'margin-top': 20px,
+
+        'text-transform': uppercase,
+        'color': get-theme-color('secondary'),
+      )
+    );
+
+    & + .rates__card-block-list {
+      @include mobile(
+        (
+          'margin-top': 4px,
+        )
+      );
+    }
+  }
+
+  &__card-block-list {
+    @include mobile(
+      (
+        'margin-top': 16px,
+      )
+    );
+  }
+
+  &__card-block-item {
+    @include mobile(
+      (
+        'position': relative,
+        'padding-left': 12px,
+        'margin-top': 2px,
+      )
+    );
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'content': '',
+
+          'top': 6px,
+          'left': 0,
+
+          'width': 4px,
+          'height': 4px,
+
+          'background': #fff,
+          'border-radius': 5px,
+          'opacity': 0.7,
+        )
+      );
+    }
+  }
+
+  &__item {
+    @include absolute('.__dialog', 17px, 15px, 2px, 0);
+    @include absolute('.__clock', 17px, 17px, 0, 0);
+    @include absolute('.__play', 14px, 14px, 2px, 0);
+    @include absolute('.__tooltip', 16px, 15px, 2px, 0);
+    @include absolute('.__confederate', 22px, 12px, 2px, -3px);
+    @include absolute('.__heart', 17px, 13px, 2px, 1px);
+    @include absolute('.__flower', 16px, 16px, 0, 2px);
+
+    @include mobile(
+      (
+        'padding-left': 27px,
+        'margin-top': 20px,
+      )
+    );
+
+    svg {
+      fill: get-theme-color('secondary');
+    }
+
+    i {
+      color: get-theme-color('secondary');
+    }
+
+    .__play,
+    .__confederate {
+      fill: #fff;
+    }
+
+    .__mark {
+      @include mobile(
+        (
+          'display': block,
+          'margin-top': 3px,
+
+          'font-size': 8px,
+          'font-family': italic,
+        )
+      );
+    }
+
+    &_vip {
+      @include mobile(
+        (
+          'margin-bottom': 40px,
+        )
+      );
+
+      .__heart {
+        fill: get-theme-color('gold');
+      }
+
+      .uppercase i {
+        color: #fff;
+      }
+    }
+
+    &_diamond {
+      .__heart {
+        fill: get-theme-color('diamond');
+      }
+
+      .uppercase i {
+        color: #fff;
+      }
+    }
+
+    &_lecture {
+      &:before {
+        @include mobile(
+          (
+            'display': inline,
+            'content': 'Лекция',
+
+            'border-bottom': 1px solid #fff,
+          )
+        );
+      }
+
+      .__name {
+        @include mobile(
+          (
+            'display': block,
+            'margin-top': 2px,
+          )
+        );
+      }
+    }
+  }
+
+  &__card-prices {
+    @include mobile(
+      (
+        'display': flex,
+        'justify-content': flex-end,
+        'align-items': flex-end,
+
+        'margin': 30px -6px 0,
+
+        'white-space': nowrap,
+      )
+    );
+
+    .__old {
+      @include mobile(
+        (
+          'position': relative,
+          'bottom': 3px,
+
+          'margin-right': 17px,
+
+          'font-size': 16px,
+        )
+      );
+
+      &:before {
+        @include mobile(
+          (
+            'position': absolute,
+            'content': '',
+
+            'top': 50%,
+            'left': -3px,
+            'right': -3px,
+
+            'height': 1px,
+            'background': get-theme-color('avocado'),
+          )
+        );
+      }
+
+      &:after {
+        @include mobile(
+          (
+            'content': ' руб.',
+            'font-size': 12px,
+          )
+        );
+      }
+    }
+
+    .__current {
+      @include mobile(
+        (
+          'font-size': 24px,
+        )
+      );
+
+      &:after {
+        @include mobile(
+          (
+            'content': ' руб.',
+            'font-size': 16px,
+          )
+        );
+      }
+    }
+  }
+
+  &__card-buttons {
+    @include mobile(
+      (
+        'margin': 10px -12px 0,
+      )
+    );
+  }
+
+  &__card-button {
+    @include mobile(
+      (
+        'display': block,
+
+        'margin-top': 8px,
+
+        'height': 35px,
+        'line-height': 35px,
+
+        'background': get-theme-color('secondary'),
+        'border-radius': 35px,
+
+        'text-transform': uppercase,
+        'text-align': center,
+        'color': #fff,
+      )
+    );
+  }
+}

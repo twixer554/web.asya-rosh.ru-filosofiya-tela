@@ -1,0 +1,100 @@
+.button {
+  @include mobile(
+    (
+      'position': relative,
+      'z-index': 5,
+
+      'border-radius': 100px,
+      'text-transform': uppercase,
+    )
+  );
+
+  &__inner {
+    @include mobile(
+      (
+        'display': flex,
+        'align-items': center,
+        'justify-content': center,
+
+        'min-height': 100%,
+      )
+    );
+  }
+
+  &_avocado {
+    background: get-theme-color('avocado');
+    color: get-theme-color('default');
+
+    svg {
+      fill: get-theme-color('primary');
+    }
+  }
+
+  &_secondary {
+    background: get-theme-color('secondary');
+    color: get-theme-color('white');
+  }
+
+  &_primary {
+    background: get-theme-color('primary');
+    color: get-theme-color('white');
+  }
+
+  &_gold {
+    background: get-theme-color('gold');
+    color: get-theme-color('default');
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'z-index': -1,
+          'content': '',
+
+          'top': 0,
+          'left': 0,
+          'right': 0,
+          'bottom': 0,
+
+          'background': url(../img/gold-texture.jpg),
+          'background-size': cover,
+          'border-radius': inherit,
+
+          'opacity': 0.3,
+        )
+      );
+
+      .use-webp & {
+        background: url(../img/gold-texture.webp);
+      }
+    }
+  }
+
+  &_diamond {
+    background: get-theme-color('diamond');
+    color: get-theme-color('default');
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'z-index': -1,
+          'content': '',
+
+          'top': 0,
+          'left': 0,
+          'right': 0,
+          'bottom': 0,
+
+          'background': url(../img/diamond-texture.jpg),
+          'background-size': cover,
+          'border-radius': inherit,
+        )
+      );
+
+      .use-webp & {
+        background: url(../img/diamond-texture.webp);
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.modal {
+  &__wrap {
+    @include mobile(
+      (
+        'position': relative,
+      )
+    );
+  }
+
+  &__close {
+    @include mobile(
+      (
+        'position': absolute,
+        'z-index': 5,
+
+        'top': 5px,
+        'right': 5px,
+
+        'width': 20px,
+        'height': 20px,
+      )
+    );
+
+    svg {
+      @include mobile(
+        (
+          'width': 8px,
+          'height': 8px,
+
+          'fill': get-theme-color('white'),
+        )
+      );
+    }
+  }
+}

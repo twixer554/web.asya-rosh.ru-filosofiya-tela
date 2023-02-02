@@ -1,490 +1,350 @@
 .rates {
-  @include absolute('.rates__circle', 200px, 200px, 45px, 158px);
+  $card-item-margin: 20px;
 
-  &__cursive {
-    @include cursive();
-  }
+  &__row {
+    @include row-flex;
 
-  &__title {
-    @include title();
-
-    span {
-      @include desktop(
-        (
-          'font-weight': 300,
-        )
-      );
-    }
-
-    &_1 {
-      @include desktop(
-        (
-          'margin-top': 124px,
-        )
-      );
-
-      @include absolute('svg', 13px, 11px, 109px, 68px);
-    }
-
-    &_2 {
-      @include desktop(
-        (
-          'margin-top': 60px,
-        )
-      );
-    }
+    @include mobile(
+      (
+        'margin-top': -20px,
+      )
+    );
   }
 
   &__card {
-    @include desktop(
-      (
-        'position': relative,
+    @include col;
+    @include size(3);
 
-        'padding': 30px 32px 20px,
-        'margin': 20px -20px,
+    @include mobile(
+      (
+        'margin-top': 20px,
+        'padding': 20px,
 
         'border-width': 1px,
         'border-style': solid,
-        'border-radius': 20px,
+        'border-radius': $card-radius,
       )
     );
 
-    &:before {
-      @include desktop(
+    @include absolute('.__label', -2px, 212px);
+
+    .__label {
+      @include mobile(
         (
-          'position': absolute,
-          'content': '',
-
-          'top': -7px,
-          'right': 20px,
-
-          'width': 27px,
-          'height': 36px,
-
-          'background-position': top right,
-          'background-size': contain,
-          'background-repeat': no-repeat,
+          'width': 28px,
         )
       );
     }
 
     &_secondary {
-      @include desktop(
-        (
-          'border-color': get-theme-color('secondary'),
-        )
-      );
+      border-color: get-theme-color('secondary');
 
-      &:before {
-        background-image: url(../img/rate-label-1.svg);
+      .rates__card-button {
+        background: get-theme-color('secondary');
       }
     }
 
     &_primary {
-      @include desktop(
-        (
-          'border-color': get-theme-color('primary'),
-        )
-      );
-
-      .rates__card-button {
-        background: get-theme-color('primary');
-      }
-
-      &:before {
-        background-image: url(../img/rate-label-2.svg);
-      }
+      border-color: get-theme-color('primary');
     }
 
     &_gold {
-      @include desktop(
-        (
-          'border-color': get-theme-color('gold'),
-        )
-      );
-
-      .rates__card-button {
-        background: get-theme-color('gold');
-        position: relative;
-        z-index: 1;
-
-        &:before {
-          @include desktop(
-            (
-              'position': absolute,
-              'z-index': -1,
-              'content': '',
-
-              'top': 0,
-              'left': 0,
-              'right': 0,
-              'bottom': 0,
-
-              'background': url(../img/gold-texture.jpg) center no-repeat,
-              'border-radius': inherit,
-              'opacity': 0.5,
-            )
-          );
-        }
-      }
-
-      .rates__card-label {
-        svg {
-          fill: get-theme-color('gold');
-        }
-
-        span {
-          color: get-theme-color('default');
-        }
-      }
-
-      &:before {
-        background-image: url(../img/rate-label-3.png);
-      }
+      border-color: get-theme-color('gold');
     }
 
     &_diamond {
-      @include desktop(
-        (
-          'border-color': get-theme-color('diamond'),
-          'margin-top': 32px,
-        )
-      );
+      border-color: get-theme-color('diamond');
 
-      .rates__card-button {
-        background: get-theme-color('diamond');
-        color: get-theme-color('default');
-        position: relative;
-        z-index: 1;
-
-        &:before {
-          @include desktop(
-            (
-              'position': absolute,
-              'z-index': -1,
-              'content': '',
-
-              'top': 0,
-              'left': 0,
-              'right': 0,
-              'bottom': 0,
-
-              'background': url(../img/diamond-texture.jpg) center no-repeat,
-              'border-radius': inherit,
-            )
-          );
-        }
-      }
-
-      .rates__card-label {
-        svg {
-          fill: get-theme-color('diamond');
-        }
-
-        span {
-          color: get-theme-color('default');
-        }
-      }
-
-      &:before {
-        @include desktop(
+      .__label {
+        @include mobile(
           (
-            'width': 50px,
-            'height': 62px,
+            'width': 42px,
 
-            'top': -22px,
-            'right': 1px,
-
-            'background-image': url(../img/diamond.png),
+            'top': -15px,
+            'left': 205px,
           )
         );
       }
     }
   }
 
-  &__card-label {
-    @include absolute('svg', 187px, 19px, -2px, -45px);
-
-    @include desktop(
-      (
-        'margin': 12px 0 24px,
-      )
-    );
-
-    svg {
-      @include desktop(
-        (
-          'z-index': -1,
-        )
-      );
-    }
-
-    span {
-      @include title(12px);
-    }
+  &__card-name {
+    @include title(22px);
   }
 
-  &__card-title {
-    @include title(24px);
-  }
+  &__card-counts {
+    @include absolute('img', 0, 0);
+    @include title(12);
 
-  &__card-block {
-    @include absolute('.__flower', 16px, 16px, 0, 0);
-
-    @include desktop(
-      (
-        'margin-top': 35px,
-        'padding-left': 30px,
-      )
-    );
-
-    &:before {
-      content: 'Блок';
-    }
-
-    svg {
-      fill: get-theme-color('avocado');
-    }
-  }
-
-  &__card-block-name {
-    text-transform: uppercase;
-  }
-
-  &__card-block-toggler {
-    @include absolute('svg', 11px, 7px, 4px, 0);
-
-    @include desktop(
-      (
-        'padding-left': 18px,
-        'margin-top': 2px,
-
-        'color': get-theme-color('secondary'),
-      )
-    );
-
-    svg {
-      fill: get-theme-color('secondary');
-    }
-
-    span {
-      @include desktop(
-        (
-          'border-bottom': 1px solid get-theme-color('secondary'),
-        )
-      );
-    }
-  }
-
-  &__card-block-title {
-    @include desktop(
-      (
-        'margin-top': 20px,
-
-        'text-transform': uppercase,
-        'color': get-theme-color('secondary'),
-      )
-    );
-
-    & + .rates__card-block-list {
-      @include desktop(
-        (
-          'margin-top': 4px,
-        )
-      );
-    }
-  }
-
-  &__card-block-list {
-    @include desktop(
-      (
-        'margin-top': 16px,
-      )
-    );
-  }
-
-  &__card-block-item {
-    @include desktop(
+    @include mobile(
       (
         'position': relative,
-        'padding-left': 12px,
-        'margin-top': 2px,
+
+        'margin-top': $card-item-margin,
+        'margin-left': -20px,
+        'padding-left': 20px,
+
+        'height': 24px,
+        'line-height': 24px,
+        'color': get-theme-color('default'),
       )
     );
 
-    &:before {
-      @include desktop(
+    img {
+      @include mobile(
         (
-          'position': absolute,
-          'content': '',
-
-          'top': 6px,
-          'left': 0,
-
-          'width': 4px,
-          'height': 4px,
-
-          'background': #fff,
-          'border-radius': 5px,
-          'opacity': 0.7,
+          'height': 100%,
         )
       );
     }
   }
 
-  &__item {
-    @include absolute('.__dialog', 17px, 15px, 2px, 0);
-    @include absolute('.__clock', 17px, 17px, 0, 0);
-    @include absolute('.__play', 14px, 14px, 2px, 0);
-    @include absolute('.__tooltip', 16px, 15px, 2px, 0);
-    @include absolute('.__confederate', 22px, 12px, 2px, -3px);
-    @include absolute('.__heart', 17px, 13px, 2px, 1px);
-    @include absolute('.__flower', 16px, 16px, 0, 2px);
-
-    @include desktop(
+  &__card-item {
+    @include mobile(
       (
-        'padding-left': 27px,
-        'margin-top': 20px,
+        'position': relative,
+
+        'margin-top': $card-item-margin,
+        'padding-left': 26px,
+
+        'font-size': 10px,
       )
     );
 
-    svg {
+    & > svg {
+      @include mobile(
+        (
+          '
+          position': absolute,
+
+          'top': -2px,
+          'left': 0,
+          'width': 16px,
+          'height': 16px,
+        )
+      );
+    }
+
+    .__personal {
+      @include mobile(
+        (
+          'font-style': italic,
+        )
+      );
+
+      &__who {
+        span {
+          text-transform: uppercase;
+        }
+      }
+
+      &__position {
+        @include mobile(
+          (
+            'margin-top': 4px,
+
+            'font-size': 8px,
+          )
+        );
+      }
+    }
+
+    .__block {
+      &:before {
+        @include mobile(
+          (
+            'content': 'Блок ',
+            'text-transform': uppercase,
+          )
+        );
+      }
+    }
+
+    .__lecture {
+      &:before {
+        @include mobile(
+          (
+            'content': 'Лекция ',
+            'text-transform': uppercase,
+          )
+        );
+      }
+
+      &__speaker {
+        @include mobile(
+          (
+            'margin-top': 4px,
+
+            'font-size': 8px,
+          )
+        );
+      }
+    }
+
+    .__program {
+      $color: get-theme-color('secondary');
+
+      @include mobile(
+        (
+          'margin-top': 8px,
+        )
+      );
+
+      &__toggler {
+        @include absolute('svg', 4px, 0);
+
+        @include mobile(
+          (
+            'padding-left': 11px,
+
+            'color': $color,
+          )
+        );
+
+        span {
+          @include mobile(
+            (
+              'border-bottom': 1px solid $color,
+            )
+          );
+        }
+
+        svg {
+          @include mobile(
+            (
+              'width': 7px,
+              'height': 4px,
+
+              'fill': $color,
+            )
+          );
+        }
+      }
+
+      &__title {
+        @include mobile(
+          (
+            'margin-top': 12px,
+
+            'text-transform': uppercase,
+            'color': get-theme-color('secondary'),
+          )
+        );
+      }
+
+      &__list {
+        @include mobile(
+          (
+            'margin-top': 8px,
+          )
+        );
+      }
+
+      &__item {
+        @include mobile(
+          (
+            'position': relative,
+
+            'margin-top': 4px,
+            'padding-left': 10px,
+          )
+        );
+
+        &:before {
+          @include mobile(
+            (
+              'position': absolute,
+              'content': '',
+
+              'top': 5px,
+              'left': 0,
+
+              'width': 4px,
+              'height': 4px,
+
+              'background': get-theme-color('white'),
+              'border-radius': 50%,
+
+              'opacity': 0.4,
+            )
+          );
+        }
+      }
+    }
+
+    .__access {
+      @include mobile(
+        (
+          'color': get-theme-color('secondary'),
+          'font-style': italic,
+        )
+      );
+    }
+
+    svg._avocado {
+      fill: get-theme-color('avocado');
+    }
+
+    svg._gold {
+      fill: get-theme-color('gold');
+    }
+
+    svg._secondary {
       fill: get-theme-color('secondary');
     }
 
-    i {
-      color: get-theme-color('secondary');
-    }
-
-    .__play,
-    .__confederate {
-      fill: #fff;
-    }
-
-    .__mark {
-      @include desktop(
-        (
-          'display': block,
-          'margin-top': 3px,
-
-          'font-size': 8px,
-          'font-family': italic,
-        )
-      );
-    }
-
-    &_vip {
-      @include desktop(
-        (
-          'margin-bottom': 40px,
-        )
-      );
-
-      .__heart {
-        fill: get-theme-color('gold');
-      }
-
-      .uppercase i {
-        color: #fff;
-      }
-    }
-
-    &_diamond {
-      .__heart {
-        fill: get-theme-color('diamond');
-      }
-
-      .uppercase i {
-        color: #fff;
-      }
-    }
-
-    &_lecture {
-      &:before {
-        @include desktop(
-          (
-            'display': inline,
-            'content': 'Лекция',
-
-            'border-bottom': 1px solid #fff,
-          )
-        );
-      }
-
-      .__name {
-        @include desktop(
-          (
-            'display': block,
-            'margin-top': 2px,
-          )
-        );
-      }
+    svg._white {
+      fill: get-theme-color('white');
     }
   }
 
-  &__card-prices {
-    @include desktop(
+  &__card-price {
+    @include mobile(
       (
         'display': flex,
-        'justify-content': flex-end,
         'align-items': flex-end,
+        'justify-content': flex-end,
 
-        'margin': 30px -6px 0,
+        'margin-top': $card-item-margin,
+        'padding-top': $card-item-margin,
 
-        'white-space': nowrap,
+        'border-top': 1px solid rgba(255, 255, 255, 0.1),
       )
     );
 
+    .__current {
+      @include mobile(
+        (
+          'margin-left': 12px,
+
+          'font-size': 18px,
+        )
+      );
+    }
+
     .__old {
-      @include desktop(
+      @include mobile(
         (
           'position': relative,
-          'bottom': 3px,
+          'bottom': 2px,
 
-          'margin-right': 17px,
-
-          'font-size': 16px,
+          'font-size': 12px,
         )
       );
 
       &:before {
-        @include desktop(
+        @include mobile(
           (
             'position': absolute,
             'content': '',
 
             'top': 50%,
-            'left': -3px,
-            'right': -3px,
+            'left': -1px,
+            'right': -1px,
 
             'height': 1px,
+
             'background': get-theme-color('avocado'),
-          )
-        );
-      }
-
-      &:after {
-        @include desktop(
-          (
-            'content': ' руб.',
-            'font-size': 12px,
-          )
-        );
-      }
-    }
-
-    .__current {
-      @include desktop(
-        (
-          'font-size': 24px,
-        )
-      );
-
-      &:after {
-        @include desktop(
-          (
-            'content': ' руб.',
-            'font-size': 16px,
           )
         );
       }
@@ -492,29 +352,18 @@
   }
 
   &__card-buttons {
-    @include desktop(
+    @include mobile(
       (
-        'margin': 10px -12px 0,
+        'margin-top': 5px,
       )
     );
   }
 
   &__card-button {
-    @include desktop(
+    @include mobile(
       (
-        'display': block,
-
-        'margin-top': 8px,
-
-        'height': 35px,
-        'line-height': 35px,
-
-        'background': get-theme-color('secondary'),
-        'border-radius': 35px,
-
-        'text-transform': uppercase,
-        'text-align': center,
-        'color': #fff,
+        'margin-top': 5px,
+        'width': 100%,
       )
     );
   }

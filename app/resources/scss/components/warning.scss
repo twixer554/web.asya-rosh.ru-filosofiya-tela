@@ -1,0 +1,38 @@
+.warning {
+  @include mobile(
+    (
+      'display': flex,
+      'align-items': center,
+
+      'font-size': 10px,
+    )
+  );
+
+  &__icon {
+    @include flex-img(20px);
+
+    @include mobile(
+      (
+        'margin-right': 8px,
+
+        'height': 20px,
+
+        'background': get-theme-color('warning'),
+        'border-radius': 50%,
+
+        'text-align': center,
+      )
+    );
+
+    svg {
+      @include mobile(
+        (
+          'width': 2px,
+          'height': 100%,
+
+          'fill': get-theme-color('white'),
+        )
+      );
+    }
+  }
+}

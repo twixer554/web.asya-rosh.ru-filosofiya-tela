@@ -1,0 +1,454 @@
+.teachers {
+  $card-item-margin: (20px, 30px);
+
+  &__row {
+    @include row-flex;
+
+    @include mobile(
+      (
+        'margin-top': -20px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': -30px,
+
+        'align-items': flex-start,
+      )
+    );
+  }
+
+  &__card {
+    @include col;
+    @include size(12);
+    @include size-lg(2/3);
+    @include size-xl(2/3);
+
+    @include mobile(
+      (
+        'margin-top': 20px,
+
+        'background': get-theme-color('card-bg'),
+        'border-radius': $card-radius,
+        'box-shadow': $card-shadow,
+
+        'color': get-theme-color('default'),
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': 30px,
+
+        'border-radius': $card-radius,
+        'box-shadow': $card-shadow,
+      )
+    );
+  }
+
+  &__card-top {
+    @include absolute('img', 0, 0);
+
+    @include mobile(
+      (
+        'position': relative,
+
+        'min-height': 90px,
+
+        'padding-top': 25px,
+
+        'background': get-theme-color('primary'),
+        'border-radius': inherit,
+      )
+    );
+
+    @include desktop(
+      (
+        'min-height': 130px,
+        'padding-top': 30px,
+      )
+    );
+
+    img {
+      @include mobile(
+        (
+          'z-index': 2,
+
+          'height': 90px,
+
+          'border-radius': $card-radius 0 0 $card-radius,
+        )
+      );
+
+      @include desktop(
+        (
+          'height': 130px,
+
+          'border-radius': $card-radius 0 0 $card-radius,
+        )
+      );
+    }
+
+    .__name {
+      @include mobile(
+        (
+          'position': relative,
+          'z-index': 1,
+
+          'padding': 5px 0 3px 90px,
+          'max-width': fit-content,
+
+          'color': get-theme-color('default'),
+          'font-family': (
+            get-theme-font('title'),
+          ),
+          'font-size': 12px,
+        )
+      );
+
+      @include desktop(
+        (
+          'padding': 4px 0 3px 120px,
+
+          'font-size': 19px,
+        )
+      );
+
+      .teacher__card_tutor & {
+        color: get-theme-color('white');
+      }
+
+      &:before {
+        @include mobile(
+          (
+            'position': absolute,
+            'z-index': -1,
+            'content': '',
+
+            'top': 0,
+            'left': 0,
+            'right': 0,
+            'bottom': 0,
+
+            'background': get-theme-color('avocado'),
+          )
+        );
+
+        .teacher__card_tutor & {
+          background: get-theme-color('secondary');
+        }
+      }
+
+      &:after {
+        @include mobile(
+          (
+            'position': absolute,
+            'z-index': -1,
+            'content': '',
+
+            'top': 0,
+            'bottom': 0,
+            'left': 100%,
+
+            'width': 33px,
+
+            'background': url(../img/icons/teacher-label.svg) no-repeat,
+            'background-size': contain,
+          )
+        );
+
+        .teacher__card_tutor & {
+          background-image: url(../img/icons/teacher-label-secondary.svg);
+        }
+      }
+    }
+
+    .__position {
+      @include mobile(
+        (
+          'margin-top': 8px,
+
+          'padding-left': 90px,
+          'padding-right': 25px,
+
+          'font-size': 10px,
+          'color': get-theme-color('white'),
+        )
+      );
+
+      @include desktop(
+        (
+          'margin-top': 10px,
+
+          'padding-left': 120px,
+          'padding-right': 25px,
+
+          'font-size': 14px,
+        )
+      );
+    }
+  }
+
+  &__card-body {
+    @include mobile(
+      (
+        'padding': 20px,
+      )
+    );
+
+    @include desktop(
+      (
+        'padding': 30px,
+      )
+    );
+  }
+
+  &__card-list-item {
+    @include mobile(
+      (
+        'position': relative,
+
+        'margin-top': 10px,
+        'padding-left': 12px,
+
+        'font-size': 10px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': 15px,
+        'padding-left': 20px,
+
+        'font-size': 14px,
+      )
+    );
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'content': '',
+
+          'top': 4px,
+          'left': 0,
+
+          'width': 4px,
+          'height': 4px,
+
+          'background': get-theme-color('primary'),
+          'border-radius': 50%,
+        )
+      );
+
+      @include desktop(
+        (
+          'top': 5px,
+          'left': 0,
+
+          'width': 8px,
+          'height': 8px,
+        )
+      );
+    }
+  }
+
+  &__card-quote {
+    @include fl-reset;
+
+    @include mobile(
+      (
+        'position': relative,
+
+        'margin-top': nth($card-item-margin, 1),
+        'padding-left': 38px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': nth($card-item-margin, 2),
+        'padding-left': 59px,
+      )
+    );
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'content': '',
+
+          'top': 0,
+          'left': 0,
+
+          'width': 28px,
+          'height': 28px,
+
+          'background': get-theme-color('primary')
+            url(../img/icons/quote-white.svg) center no-repeat,
+          'background-size': 12px,
+          'border-radius': 50%,
+        )
+      );
+
+      @include desktop(
+        (
+          'width': 44px,
+          'height': 44px,
+
+          'background-size': 22px,
+        )
+      );
+    }
+
+    p {
+      @include mobile(
+        (
+          'margin-top': 10px,
+
+          'font-size': 10px,
+        )
+      );
+
+      @include desktop(
+        (
+          'margin-top': 15px,
+
+          'font-size': 14px,
+        )
+      );
+    }
+  }
+
+  &__card-help {
+    @include mobile(
+      (
+        'margin-top': nth($card-item-margin, 1),
+        'padding': 15px,
+
+        'background': get-theme-color('secondary'),
+        'border-radius': $card-radius,
+
+        'color': get-theme-color('white'),
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': nth($card-item-margin, 2),
+        'padding': 25px,
+
+        'border-radius': $card-radius,
+      )
+    );
+
+    &:before {
+      @include title(12px);
+
+      @include mobile(
+        (
+          'content': 'Чем я могу тебе помочь',
+        )
+      );
+
+      @include desktop(
+        (
+          'font-size': 16px,
+        )
+      );
+    }
+
+    p {
+      @include mobile(
+        (
+          'margin-top': 10px,
+
+          'font-size': 10px,
+        )
+      );
+
+      @include desktop(
+        (
+          'margin-top': 10px,
+
+          'font-size': 14px,
+        )
+      );
+    }
+  }
+
+  &__card-lecture {
+    @include mobile(
+      (
+        'position': relative,
+
+        'margin-top': nth($card-item-margin, 1),
+        'padding-left': 38px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': nth($card-item-margin, 2),
+        'padding-left': 59px,
+      )
+    );
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'content': '',
+
+          'top': 0,
+          'left': 0,
+
+          'width': 28px,
+          'height': 28px,
+
+          'background': get-theme-color('primary')
+            url(../img/icons/lecture-white.svg) center no-repeat,
+          'background-size': 12px,
+          'border-radius': 50%,
+        )
+      );
+
+      @include desktop(
+        (
+          'width': 44px,
+          'height': 44px,
+
+          'background-size': 20px,
+        )
+      );
+    }
+
+    .__name {
+      @include mobile(
+        (
+          'font-size': 10px,
+        )
+      );
+
+      @include desktop(
+        (
+          'font-size': 14px,
+        )
+      );
+
+      &:before {
+        @include mobile(
+          (
+            'content': 'Лекция ',
+            'text-transform': uppercase,
+          )
+        );
+      }
+    }
+  }
+}

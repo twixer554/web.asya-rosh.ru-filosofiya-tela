@@ -1,0 +1,103 @@
+.consult-modal {
+  @include mobile(
+    (
+      'width': 300px,
+
+      'margin': 50px auto,
+      'padding': 30px,
+
+      'background': get-theme-color('bg'),
+      'overflow': hidden,
+    )
+  );
+
+  &__top {
+    @include mobile(
+      (
+        'display': flex,
+        'align-items': center,
+      )
+    );
+
+    svg {
+      @include mobile(
+        (
+          'margin-left': auto,
+
+          'width': 73px,
+          'height': 77px,
+
+          'fill': #fff,
+        )
+      );
+    }
+
+    span {
+      @include title();
+
+      @include mobile(
+        (
+          'text-transform': none,
+        )
+      );
+    }
+  }
+
+  &__subtitle {
+    @include mobile(
+      (
+        'margin-top': 18px,
+      )
+    );
+  }
+
+  form {
+    @include mobile(
+      (
+        'margin-top': 0px,
+        'margin-left': -8px,
+      )
+    );
+  }
+
+  &__warning {
+    @include mobile(
+      (
+        'position': relative,
+
+        'display': flex,
+        'align-items': center,
+
+        'min-height': 16px,
+
+        'margin-top': 18px,
+        'margin-left': -8px,
+        'padding-left': 22px,
+
+        'font-size': 9px,
+      )
+    );
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'content': '!',
+
+          'top': 0,
+          'left': 0,
+
+          'width': 16px,
+          'height': 16px,
+          'line-height': 16px,
+
+          'background': get-theme-color('warning'),
+          'border-radius': 50%,
+
+          'color': #fff,
+          'text-align': center,
+        )
+      );
+    }
+  }
+}

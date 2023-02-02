@@ -1,0 +1,260 @@
+.students {
+  &__slider {
+    @include mobile(
+      (
+        'position': relative,
+      )
+    );
+
+    @include fix-swiper-shadow(45px);
+
+    .swiper {
+      @include desktop(
+        (
+          'margin': -30px,
+          'padding': 30px,
+        )
+      );
+    }
+
+    // .swiper-wrapper {
+    //   @include desktop(
+    //     (
+    //       'align-items': stretch,
+    //     )
+    //   );
+    // }
+  }
+
+  &__slider-arrow {
+    @include mobile(
+      (
+        'position': absolute,
+        'top': 50%,
+
+        'margin-top': -30px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': -30px,
+      )
+    );
+
+    &._prev {
+      @include mobile(
+        (
+          'left': -20px,
+        )
+      );
+
+      @include desktop(
+        (
+          'left': -90px,
+        )
+      );
+    }
+
+    &._next {
+      @include mobile(
+        (
+          'right': -20px,
+        )
+      );
+
+      @include mobile(
+        (
+          'right': -20px,
+        )
+      );
+    }
+  }
+
+  &__card {
+    @include mobile(
+      (
+        'padding': 34px 20px 20px,
+
+        'background': get-theme-color('card-bg'),
+        'border-radius': $card-radius,
+        'box-shadow': $card-shadow,
+      )
+    );
+
+    @include desktop(
+      (
+        'display': flex,
+        'flex-direction': column,
+
+        'padding': 50px 30px 30px,
+
+        'border-radius': $card-radius,
+        'box-shadow': $card-shadow,
+      )
+    );
+
+    @include absolute('.__confederate', -10px, 12px);
+    @include absolute('.__avatar', -10px, 210px);
+
+    .__confederate {
+      @include mobile(
+        (
+          'width': 44px,
+          'height': 24px,
+
+          'fill': get-theme-color('primary'),
+        )
+      );
+
+      @include desktop(
+        (
+          'width': 74px,
+          'height': 40px,
+
+          'top': -10px,
+          'left': 14px,
+        )
+      );
+    }
+
+    .__avatar {
+      @include mobile(
+        (
+          'width': 60px,
+        )
+      );
+
+      @include desktop(
+        (
+          'width': 100px,
+
+          'top': -15px,
+          'left': 288px,
+        )
+      );
+    }
+  }
+
+  &__card-title {
+    @include title(12px);
+
+    @include mobile(
+      (
+        'margin-top': 10px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': 15px,
+
+        'font-size': 20px,
+      )
+    );
+  }
+
+  &__card-list {
+    @include mobile(
+      (
+        'margin-top': 20px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': 30px,
+      )
+    );
+
+    @include absolute('.__arrow', 100%, 202px);
+
+    .__smile {
+      @include mobile(
+        (
+          'width': 28px,
+          'height': 28px,
+
+          'fill': get-theme-color('primary'),
+        )
+      );
+
+      @include desktop(
+        (
+          'width': 44px,
+          'height': 44px,
+        )
+      );
+    }
+
+    .__item {
+      @include mobile(
+        (
+          'position': relative,
+
+          'margin-top': 10px,
+          'padding-left': 10px,
+
+          'font-size': 10px,
+        )
+      );
+
+      @include desktop(
+        (
+          'margin-top': 15px,
+          'padding-left': 20px,
+
+          'font-size': 14px,
+        )
+      );
+
+      &:before {
+        @include mobile(
+          (
+            'position': absolute,
+            'content': '',
+
+            'top': 4px,
+            'left': 0,
+
+            'width': 4px,
+            'height': 4px,
+
+            'background': get-theme-color('primary'),
+            'border-radius': 50%,
+          )
+        );
+
+        @include desktop(
+          (
+            'top': 5px,
+
+            'width': 8px,
+            'height': 8px,
+          )
+        );
+      }
+    }
+
+    .__arrow {
+      @include mobile(
+        (
+          'z-index': 2,
+          'width': 19px,
+          'height': 40px,
+
+          'fill': get-theme-color('primary'),
+        )
+      );
+
+      @include desktop(
+        (
+          'width': 32px,
+          'height': 68px,
+
+          'left': 300px,
+        )
+      );
+    }
+  }
+}

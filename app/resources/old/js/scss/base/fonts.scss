@@ -1,0 +1,18 @@
+@mixin font-face($name, $path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($name);
+    src: url($path + '.eot');
+    src: url($path + '.eot?#iefix') format('embedded-opentype'),
+      url($path + '.woff2') format('woff2'), url($path + '.woff') format('woff'),
+      url($path + '.ttf') format('truetype');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include font-face('geometria', '../fonts/Geometria');
+@include font-face('geometria', '../fonts/Geometria-Medium', 500);
+@include font-face('montserrat', '../fonts/Montserrat-Regular');
+@include font-face('pynion', '../fonts/PinyonScript-Regular');
+@include font-face('ttdrugs', '../fonts/TTDrugs-Light', 300);
+@include font-face('ttdrugs', '../fonts/TTDrugs-Regular');

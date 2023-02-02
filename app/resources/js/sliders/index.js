@@ -1,5 +1,3 @@
-export { default as licensesSlider } from './licenses-slider'
-export { default as personalSlider } from './personal-slider'
-export { default as reviewsSlider } from './reviews-slider'
-export { default as advType12Slider } from './adv-type-12-slider'
-export { default as srvType3Slider } from './srv-type-3-slider'
+export { default as students } from './studentsSlider'
+export { default as reviewsType_1 } from './reviewsType_1'
+export { default as reviewsType_2 } from './reviewsType_2'

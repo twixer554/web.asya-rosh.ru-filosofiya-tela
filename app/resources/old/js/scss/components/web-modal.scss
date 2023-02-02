@@ -1,0 +1,121 @@
+.web-modal {
+  @include absolute('.web-modal__image', 163px, 390px, 143px, 185px);
+
+  @include mobile(
+    (
+      'width': 300px,
+
+      'margin': 50px auto,
+      'padding': 30px,
+
+      'background': get-theme-color('bg'),
+      'overflow': hidden,
+    )
+  );
+
+  &__top {
+    @include mobile(
+      (
+        'display': flex,
+        'align-items': center,
+      )
+    );
+
+    svg {
+      @include mobile(
+        (
+          'width': 73px,
+          'height': 77px,
+
+          'fill': #fff,
+        )
+      );
+    }
+
+    span {
+      @include title();
+
+      @include mobile(
+        (
+          'margin-left': 24px,
+          'text-transform': none,
+        )
+      );
+    }
+  }
+
+  &__start {
+    @include mobile(
+      (
+        'margin-top': 32px,
+
+        'color': get-theme-color('avocado'),
+        'text-transform': uppercase,
+      )
+    );
+  }
+
+  &__subtitle {
+    @include mobile(
+      (
+        'margin-top': 12px,
+      )
+    );
+
+    .__uppercase {
+      @include mobile(
+        (
+          'font-size': 10px,
+          'text-transform': uppercase,
+        )
+      );
+    }
+  }
+
+  form {
+    @include mobile(
+      (
+        'margin-top': 12px,
+        'margin-left': -8px,
+
+        'width': 160px,
+      )
+    );
+  }
+
+  &__warning {
+    @include mobile(
+      (
+        'position': relative,
+
+        'margin-top': 18px,
+        'margin-left': -8px,
+        'padding-left': 22px,
+
+        'font-size': 10px,
+      )
+    );
+
+    &:before {
+      @include mobile(
+        (
+          'position': absolute,
+          'content': '!',
+
+          'top': 0,
+          'left': 0,
+
+          'width': 16px,
+          'height': 16px,
+          'line-height': 16px,
+
+          'background': get-theme-color('warning'),
+          'border-radius': 50%,
+
+          'color': #fff,
+          'text-align': center,
+        )
+      );
+    }
+  }
+}

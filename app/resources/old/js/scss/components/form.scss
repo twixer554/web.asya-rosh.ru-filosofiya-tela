@@ -1,0 +1,42 @@
+.form {
+  form {
+    br {
+      display: none;
+    }
+
+    input {
+      @include mobile(
+        (
+          'margin-top': 8px,
+          'padding': 0 16px,
+
+          'height': 32px,
+          'width': 100%,
+
+          'background': transparent,
+          'border-radius': 38px,
+          'border': 1px solid get-theme-color('secondary'),
+          'font-size': 10px,
+          'color': #a6a6a5,
+        )
+      );
+    }
+
+    button {
+      @include mobile(
+        (
+          'margin-top': 8px,
+
+          'height': 32px,
+          'width': 100%,
+
+          'background': get-theme-color('avocado'),
+          'border-radius': 38px,
+
+          'font-size': 10px,
+          'text-transform': uppercase,
+        )
+      );
+    }
+  }
+}

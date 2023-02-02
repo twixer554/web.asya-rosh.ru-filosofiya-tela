@@ -1,0 +1,147 @@
+.reviews-type-2 {
+  &__slider {
+    @include mobile(
+      (
+        'position': relative,
+      )
+    );
+
+    @include fix-swiper-shadow(45px);
+
+    .swiper {
+      @include desktop(
+        (
+          'margin': -30px,
+          'padding': 30px,
+        )
+      );
+    }
+  }
+
+  &__slider-arrow {
+    @include mobile(
+      (
+        'position': absolute,
+        'top': 50%,
+
+        'margin-top': -16px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-top': -30px,
+      )
+    );
+
+    &._prev {
+      @include mobile(
+        (
+          'left': -20px,
+        )
+      );
+
+      @include desktop(
+        (
+          'left': -90px,
+        )
+      );
+    }
+
+    &._next {
+      @include mobile(
+        (
+          'right': -20px,
+        )
+      );
+
+      @include desktop(
+        (
+          'right': -90px,
+        )
+      );
+    }
+  }
+
+  &__cursive {
+    @include cursive();
+
+    @include mobile(
+      (
+        'margin-bottom': 40px,
+      )
+    );
+
+    @include desktop(
+      (
+        'margin-bottom': 80px,
+      )
+    );
+  }
+
+  &__slide {
+    img {
+      @include mobile(
+        (
+          'border-radius': $card-radius,
+          'box-shadow': $card-shadow,
+        )
+      );
+
+      @include desktop(
+        (
+          'border-radius': $card-radius,
+          'box-shadow': $card-shadow,
+        )
+      );
+    }
+
+    &:before {
+      $size: (28px, 44px);
+
+      @include mobile(
+        (
+          'position': absolute,
+          'content': '',
+
+          'top': 100%,
+          'left': 50%,
+
+          'margin-top': nth(nth($size, 1), 1) / -2,
+          'margin-left': -nth($size, 1) / -2,
+
+          'width': nth($size, 1),
+          'height': nth($size, 1),
+          'background': get-theme-color('primary')
+            url(../img/icons/review-envelope.svg) center no-repeat,
+          'background-size': 12px,
+          'border-radius': 50%,
+
+          'text-align': center,
+        )
+      );
+
+      @include desktop(
+        (
+          'margin-top': nth(nth($size, 2), 1) / -2,
+          'margin-left': nth($size, 2) / -2,
+
+          'width': nth($size, 2),
+          'height': nth($size, 2),
+          'background-size': 22px,
+        )
+      );
+
+      svg {
+        @include mobile(
+          (
+            'width': 14px,
+            'height': 100%,
+
+            'fill': get-theme-color('white'),
+          )
+        );
+      }
+    }
+  }
+}

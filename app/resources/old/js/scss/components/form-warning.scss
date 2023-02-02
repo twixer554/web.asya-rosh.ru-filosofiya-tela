@@ -1,0 +1,37 @@
+.form-warning {
+  @include mobile(
+    (
+      'position': relative,
+
+      'display': flex,
+      'align-items': center,
+
+      'min-height': 16px,
+      'padding-left': 22px,
+
+      'font-size': 9px,
+    )
+  );
+
+  &:before {
+    @include mobile(
+      (
+        'position': absolute,
+        'content': '!',
+
+        'top': 0,
+        'left': 0,
+
+        'width': 16px,
+        'height': 16px,
+        'line-height': 16px,
+
+        'background': get-theme-color('warning'),
+        'border-radius': 50%,
+
+        'color': #fff,
+        'text-align': center,
+      )
+    );
+  }
+}

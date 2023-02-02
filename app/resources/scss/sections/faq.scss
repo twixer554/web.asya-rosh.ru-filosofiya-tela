@@ -1,0 +1,86 @@
+.faq {
+  &__item {
+    @include mobile(
+      (
+        'margin-top': 20px,
+      )
+    );
+
+    img {
+      @include mobile(
+        (
+          'border-radius': $card-radius,
+          'box-shadow': $card-shadow,
+        )
+      );
+    }
+  }
+
+  &__care {
+    @include mobile(
+      (
+        'padding': 20px,
+
+        'background': get-theme-color('primary'),
+        'border-radius': $card-radius,
+        'box-shadow': $card-shadow,
+
+        'color': get-theme-color('white'),
+      )
+    );
+  }
+
+  &__care-title {
+    @include title();
+  }
+
+  &__card-subtitle {
+    @include mobile(
+      (
+        'margin-top': 10px,
+      )
+    );
+  }
+
+  &__care-social {
+    @include mobile(
+      (
+        'margin-top': 20px,
+      )
+    );
+  }
+
+  &__care-social-row {
+    @include mobile(
+      (
+        'display': flex,
+        'justify-content': space-between,
+      )
+    );
+  }
+
+  &__care-social-item {
+    @include mobile(
+      (
+        'width': 68px,
+        'height': 68px,
+
+        'background': get-theme-color('secondary'),
+        'border-radius': 50%,
+
+        'text-align': center,
+      )
+    );
+
+    svg {
+      @include mobile(
+        (
+          'width': 20px,
+          'height': 100%,
+
+          'fill': get-theme-color('white'),
+        )
+      );
+    }
+  }
+}

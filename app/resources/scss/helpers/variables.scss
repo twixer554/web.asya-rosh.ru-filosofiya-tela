@@ -1,7 +1,7 @@
 // breakpoints
 $grid-breakpoints: (
   'lg': $break_lg,
-  'xs': $break_xs,
+  'xl': $break_xl,
 );
 
 $theme-fonts: (
@@ -24,13 +24,18 @@ $theme-fonts: (
 );
 
 $theme-colors: (
-  'default': #1c1f1e,
+  'default': #171b1a,
+  'white': #fff,
+
+  'bg': #163029,
+  'card-bg': #f8f3f1,
+
+  'warning': #892a35,
   'avocado': #c8d750,
   'primary': #095540,
   'secondary': #6fa089,
   'gold': #d8c58d,
   'diamond': #e7e0e6,
-  'bg': #163029,
 );
 
 $theme-gradients: (
@@ -38,7 +43,6 @@ $theme-gradients: (
 );
 
 $border-radius: 6px;
-$box-shadow: 0px 15px 45px rgba(118, 115, 115, 0.14);
-$inset-shadow: inset 0px -2px 6px rgba(255, 255, 255, 0.35),
-  inset 0px 15px 55px rgba(255, 255, 255, 0.25);
+$card-radius: 20px;
+$card-shadow: 0px 15px 45px rgba(0, 0, 0, 0.05);
 $transition-time: 0.3s;
